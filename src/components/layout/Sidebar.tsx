@@ -3,7 +3,6 @@ import {
   Bubbles,
   ChartCandlestick,
   Newspaper,
-  Search,
   Speech,
   WandSparkles,
   X,
