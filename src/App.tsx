@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./components/layout/Layout";
+import ChartSection from "./components/domain/pricing/ChatSection";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -20,8 +21,7 @@ function App() {
 
   return (
     <Layout>
-      <h1 className="text-2xl font-bold">테스트</h1>
-      <p className="mt-4">테스트</p>
+      <ChartSection />
     </Layout>
     // <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-primary-dark">
     //   <button
