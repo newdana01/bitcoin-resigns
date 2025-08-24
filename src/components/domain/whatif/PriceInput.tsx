@@ -3,9 +3,10 @@ import React, { useRef, useState } from "react";
 interface PriceInputProps {
   name: string;
   label: string;
+  disabled?: boolean;
 }
 
-export default function PriceInput({ name, label }: PriceInputProps) {
+export default function PriceInput({ name, label, disabled }: PriceInputProps) {
   const [value, setValue] = useState("");
   const borderRef = useRef<HTMLInputElement>(null);
 
@@ -58,7 +59,8 @@ export default function PriceInput({ name, label }: PriceInputProps) {
           pattern="[0-9]*"
           name={name}
           value={value}
-          className="mt-1 w-full px-3 py-3 bg-transparent text-sm shadow-sm placeholder-slate-400
+          disabled={disabled}
+          className="w-full px-3 bg-transparent text-sm shadow-sm placeholder-slate-400
       focus:outline-none"
         />
       </div>
