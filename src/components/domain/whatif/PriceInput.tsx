@@ -6,6 +6,7 @@ interface PriceInputProps {
   label?: string;
   disabled?: boolean;
   displayType?: "inline-block" | "block";
+  propValue?: number | null;
 }
 
 export default function PriceInput({
@@ -13,6 +14,7 @@ export default function PriceInput({
   label,
   disabled,
   displayType,
+  propValue,
 }: PriceInputProps) {
   const [value, setValue] = useState("");
   const borderRef = useRef<HTMLInputElement>(null);
@@ -63,7 +65,7 @@ export default function PriceInput({
           inputMode="numeric"
           pattern="[0-9]*"
           name={name}
-          value={value}
+          value={propValue ? propValue : value}
           disabled={disabled}
           className="w-full px-3 bg-transparent text-sm shadow-sm placeholder-slate-400
       focus:outline-none"
