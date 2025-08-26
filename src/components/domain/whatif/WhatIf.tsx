@@ -44,6 +44,7 @@ export default function WhatIf() {
     setTotalInvestment(0);
     setProfitLoss(null);
     setResultTotalAmount(null);
+    setProfitRate(null);
   };
 
   const handleClickCalculate = () => {
@@ -112,7 +113,11 @@ You can select any date from August 17, 2017 to before today.`}
             </button>
           </div>
         </div>
-        <Result profitLoss={profitLoss} totalInvestment={resultTotalAmount} />
+        <Result
+          profitLoss={profitLoss}
+          totalInvestment={resultTotalAmount}
+          profitRate={profitRate}
+        />
       </div>
     </div>
   );
