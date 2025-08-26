@@ -10,6 +10,7 @@ import {
   Tooltip,
   Filler,
 } from "chart.js";
+import SectionName from "../../../common/components/SectionName";
 
 ChartJS.register(
   CategoryScale,
@@ -115,11 +116,11 @@ export default function PriceChart() {
 
   return (
     <div>
-      <h2 className="text-4xl font-semibold mb-8">Bitcoin Price</h2>
+      <SectionName name="Bitcoin Price"></SectionName>
       <div className="font-bold text-lg mb-4">
         <span className="text-xl mr-2 md:text-2xl">
           ${currentPrice.toLocaleString("en-US")}{" "}
-          <span className="text-gray-400">USD</span>
+          <span className="text-slate-500">USD</span>
         </span>
         <span className={`${priceGap > 0 ? "text-green-500" : "text-red-500"}`}>
           {priceGap > 0 ? "+" : ""}
