@@ -8,6 +8,59 @@ import InfoTooltip from "../../../common/components/InfoTooltip";
 type CalculateOption = "date" | "price";
 export default function WhatIf() {
   const [option, setOption] = useState<CalculateOption>("date");
+  const [buyPrice, setBuyPrice] = useState(0);
+  const [sellPrice, setSellPrice] = useState(0);
+  const [investmentFee, setInvestmentFee] = useState(0);
+  const [exitFee, setExitFee] = useState(0);
+  const [totalInvestment, setTotalInvestment] = useState(0);
+  const [profitLoss, setProfitLoss] = useState<number | null>(0);
+  const [resultTotalAmount, setResultTotalAmount] = useState<number | null>(0);
+  const [profitRate, setProfitRate] = useState(0);
+
+  const getSimulResult = (
+    buyPrice: number,
+    sellPrice: number,
+    totalInvestment: number,
+    investmentFee: number,
+    exitFee: number,
+  ) => {
+    const effectiveAmount = totalInvestment * (1 - investmentFee);
+    const amount = effectiveAmount / buyPrice;
+    const finalAmount = amount * sellPrice * (1 - exitFee);
+    const profitLoss = finalAmount - totalInvestment;
+
+    return {
+      finalAmount,
+      profitLoss,
+      profitRate: (profitLoss / totalInvestment) * 100,
+    };
+  };
+
+  const handleClickReset = () => {
+    setBuyPrice(0);
+    setSellPrice(0);
+    setInvestmentFee(0);
+    setExitFee(0);
+    setTotalInvestment(0);
+    setProfitLoss(null);
+    setResultTotalAmount(null);
+  };
+
+  const handleClickCalculate = () => {
+    if (!buyPrice && !sellPrice && !totalInvestment) return;
+    const { finalAmount, profitLoss, profitRate } = getSimulResult(
+      buyPrice,
+      sellPrice,
+      totalInvestment,
+      investmentFee,
+      exitFee,
+    );
+
+    setResultTotalAmount(finalAmount);
+    setProfitLoss(profitLoss);
+    setProfitRate(profitRate);
+  };
+
   return (
     <div>
       <SectionName name="What If?" />
@@ -44,8 +97,22 @@ You can select any date from August 17, 2017 to before today.`}
           </label>
           <DateDashBoard />
           <PriceDashBoard />
+          <div className="mt-3 flex gap-4">
+            <button
+              className="bg-primary-orange text-black flex-1 md:flex-none"
+              onClick={handleClickReset}
+            >
+              Reset
+            </button>
+            <button
+              className="bg-primary-orange text-black flex-1 md:flex-none"
+              onClick={handleClickCalculate}
+            >
+              Calculate
+            </button>
+          </div>
         </div>
-        <Result profitLoss={-1301130} totalInvestment={1130000} />
+        <Result profitLoss={profitLoss} totalInvestment={resultTotalAmount} />
       </div>
     </div>
   );
