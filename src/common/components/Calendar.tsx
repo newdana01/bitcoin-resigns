@@ -80,7 +80,7 @@ export default function Calendar({
         <select
           value={currentMonth.getMonth()}
           onChange={handleMonthChange}
-          className="border rounded p-1 bg-transparent"
+          className="rounded p-1 bg-transparent"
         >
           {months.map((m) => (
             <option key={m.value} value={m.value}>
@@ -92,7 +92,7 @@ export default function Calendar({
         <select
           value={currentMonth.getFullYear()}
           onChange={handleYearChange}
-          className="border rounded p-1 bg-transparent"
+          className="rounded p-1 bg-transparent"
         >
           {years.map((y) => (
             <option key={y} value={y}>
