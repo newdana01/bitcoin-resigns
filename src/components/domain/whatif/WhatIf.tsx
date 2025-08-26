@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SectionName from "../../../common/components/SectionName";
 import PriceDashBoard from "./PriceDashBoard";
 import Result from "./Result";
@@ -102,7 +102,13 @@ You can select any date from August 17, 2017 to before today.`}
             sellPrice={sellPrice}
             setSellPrice={setSellPrice}
           />
-          <PriceDashBoard />
+          <PriceDashBoard
+            setBuyPrice={setBuyPrice}
+            setSellPrice={setSellPrice}
+            setTotalInvestment={setTotalInvestment}
+            setInvestmentFee={setInvestmentFee}
+            setExitFee={setExitFee}
+          />
           <div className="mt-3 flex gap-4">
             <button
               className="bg-primary-orange text-black flex-1 md:flex-none"
