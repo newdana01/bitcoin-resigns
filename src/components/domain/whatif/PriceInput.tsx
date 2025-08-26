@@ -1,12 +1,19 @@
 import React, { useRef, useState } from "react";
+import Label from "../../../common/components/Label";
 
 interface PriceInputProps {
   name: string;
-  label: string;
+  label?: string;
   disabled?: boolean;
+  displayType?: "inline-block" | "block";
 }
 
-export default function PriceInput({ name, label, disabled }: PriceInputProps) {
+export default function PriceInput({
+  name,
+  label,
+  disabled,
+  displayType,
+}: PriceInputProps) {
   const [value, setValue] = useState("");
   const borderRef = useRef<HTMLInputElement>(null);
 
@@ -40,9 +47,7 @@ export default function PriceInput({ name, label, disabled }: PriceInputProps) {
   };
   return (
     <div>
-      <span className="mb-2 block text-sm font-medium text-slate-500">
-        {label}
-      </span>
+      {label && <Label label={label} />}
       <div
         className="flex border border-slate-700 focus:ring-primary-orange rounded-md"
         ref={borderRef}
