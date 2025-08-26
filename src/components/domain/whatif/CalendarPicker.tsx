@@ -2,9 +2,16 @@ import { useState } from "react";
 import Calendar from "../../../common/components/Calendar";
 import { format } from "date-fns";
 
-export default function CalendarPicker() {
+interface CalendarPickerProps {
+  selectedDate: Date | null;
+  onSelectDate: (date: Date) => void;
+}
+
+export default function CalendarPicker({
+  selectedDate,
+  onSelectDate,
+}: CalendarPickerProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
     <div className="inline-block relative">
@@ -14,7 +21,7 @@ export default function CalendarPicker() {
         value={
           selectedDate ? format(selectedDate, "yyyy-MM-dd") : "Select date..."
         }
-        className="border border-slate-700 rounded-md bg-transparent p-[0.65rem]"
+        className="border border-slate-700 rounded-md bg-transparent p-[0.65rem] text-sm"
         onClick={() => setIsOpen(!isOpen)}
       />
       {isOpen && (
@@ -22,7 +29,7 @@ export default function CalendarPicker() {
           <Calendar
             selectedDate={selectedDate}
             onSelectDate={(date) => {
-              setSelectedDate(date);
+              onSelectDate(date);
               setIsOpen(false);
             }}
           />
