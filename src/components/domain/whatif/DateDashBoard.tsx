@@ -36,10 +36,12 @@ export default function DateDashBoard() {
     <div className="hidden peer-checked/calculateDate:block">
       <div className="my-2">
         <Label label="Buy Date" />
-        <div className="flex">
+        <div className="flex flex-1">
           <CalendarPicker selectedDate={buyDate} onSelectDate={setBuyDate} />
           <span className="mx-2 leading-[2.5rem]">→</span>
-          <PriceInput name="buyDate" disabled={true} propValue={buyPrice} />
+          <div className="flex-1">
+            <PriceInput name="buyDate" disabled={true} propValue={buyPrice} />
+          </div>
         </div>
       </div>
       <div className="my-2">
@@ -47,11 +49,13 @@ export default function DateDashBoard() {
         <div className="flex">
           <CalendarPicker selectedDate={sellDate} onSelectDate={setSellDate} />
           <span className="mx-2 leading-[2.5rem]">→</span>
-          <PriceInput name="sellDate" disabled={true} propValue={sellPrice} />
+          <div className="flex-1">
+            <PriceInput name="sellDate" disabled={true} propValue={sellPrice} />
+          </div>
         </div>
       </div>
       <div>
-        <PriceInput name="totalInvestment" label="Total Invsetment Amount" />
+        <PriceInput name="totalInvestment" label="Invsetment Amount" />
       </div>
     </div>
   );
