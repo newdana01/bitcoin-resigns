@@ -7,6 +7,7 @@ interface PriceInputProps {
   disabled?: boolean;
   displayType?: "inline-block" | "block";
   propValue?: number | null;
+  onChangeFunc?: (val: number) => void;
 }
 
 export default function PriceInput({
@@ -15,6 +16,7 @@ export default function PriceInput({
   disabled,
   displayType,
   propValue,
+  onChangeFunc,
 }: PriceInputProps) {
   const [value, setValue] = useState("");
   const borderRef = useRef<HTMLInputElement>(null);
@@ -46,6 +48,9 @@ export default function PriceInput({
       input = parts[0] + "." + parts[1];
     }
     setValue(input);
+    if (onChangeFunc) {
+      onChangeFunc(Number(input));
+    }
   };
   return (
     <div>
