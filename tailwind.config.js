@@ -8,6 +8,7 @@ export default {
           dark: "#181A21",
           light: "#d49417",
           yellow: "#facc15",
+          orange: "#eba51c",
         },
       },
     },
