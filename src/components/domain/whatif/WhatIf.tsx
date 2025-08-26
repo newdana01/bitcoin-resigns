@@ -36,7 +36,7 @@ export default function WhatIf() {
     };
   };
 
-  const handleClickReset = () => {
+  const clearAllPrice = () => {
     setBuyPrice(0);
     setSellPrice(0);
     setInvestmentFee(0);
@@ -61,6 +61,10 @@ export default function WhatIf() {
     setProfitLoss(profitLoss);
     setProfitRate(profitRate);
   };
+
+  useEffect(() => {
+    clearAllPrice();
+  }, [option]);
 
   return (
     <div>
@@ -112,7 +116,7 @@ You can select any date from August 17, 2017 to before today.`}
           <div className="mt-3 flex gap-4">
             <button
               className="bg-primary-orange text-black flex-1 md:flex-none"
-              onClick={handleClickReset}
+              onClick={clearAllPrice}
             >
               Reset
             </button>
