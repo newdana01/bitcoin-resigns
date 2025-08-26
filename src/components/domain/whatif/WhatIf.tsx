@@ -15,7 +15,7 @@ export default function WhatIf() {
   const [totalInvestment, setTotalInvestment] = useState(0);
   const [profitLoss, setProfitLoss] = useState<number | null>(0);
   const [resultTotalAmount, setResultTotalAmount] = useState<number | null>(0);
-  const [profitRate, setProfitRate] = useState(0);
+  const [profitRate, setProfitRate] = useState<number | null>(0);
 
   const getSimulResult = (
     buyPrice: number,
@@ -96,7 +96,12 @@ You can select any date from August 17, 2017 to before today.`}
           <label htmlFor="calculatePrice" className="mx-1">
             By Price
           </label>
-          <DateDashBoard />
+          <DateDashBoard
+            buyPrice={buyPrice}
+            setBuyPrice={setBuyPrice}
+            sellPrice={sellPrice}
+            setSellPrice={setSellPrice}
+          />
           <PriceDashBoard />
           <div className="mt-3 flex gap-4">
             <button

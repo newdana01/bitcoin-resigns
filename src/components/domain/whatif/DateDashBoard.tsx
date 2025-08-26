@@ -4,11 +4,21 @@ import { useEffect, useState } from "react";
 import Label from "../../../common/components/Label";
 import getPrice from "../../../common/functions/getPrice";
 
-export default function DateDashBoard() {
+interface DateDashBoardProps {
+  buyPrice: number;
+  setBuyPrice: (val: number) => void;
+  sellPrice: number;
+  setSellPrice: (val: number) => void;
+}
+
+export default function DateDashBoard({
+  buyPrice,
+  setBuyPrice,
+  sellPrice,
+  setSellPrice,
+}: DateDashBoardProps) {
   const [buyDate, setBuyDate] = useState<Date | null>(null);
   const [sellDate, setSellDate] = useState<Date | null>(null);
-  const [buyPrice, setBuyPrice] = useState<number | null>(null);
-  const [sellPrice, setSellPrice] = useState<number | null>(null);
 
   const fetchData = async (
     date: Date | null,
