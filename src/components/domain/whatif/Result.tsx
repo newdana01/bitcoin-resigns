@@ -1,9 +1,14 @@
 interface ResultProps {
-  profitLoss: number;
-  totalInvestment: number;
+  profitLoss: number | null;
+  totalInvestment: number | null;
+  profitRate: number | null;
 }
 
-export default function Result({ profitLoss, totalInvestment }: ResultProps) {
+export default function Result({
+  profitLoss,
+  totalInvestment,
+  profitRate,
+}: ResultProps) {
   return (
     <div className="border border-slate-700 rounded-md p-4 max-h-[17rem] h-full flex flex-col justify-between">
       <h2 className="text-lg font-bold mb-2 md:text-2xl">
