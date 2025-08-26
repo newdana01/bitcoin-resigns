@@ -11,6 +11,7 @@ import {
   Filler,
 } from "chart.js";
 import SectionName from "../../../common/components/SectionName";
+import getPrice from "../../../common/functions/getPrice";
 
 ChartJS.register(
   CategoryScale,
@@ -33,18 +34,7 @@ export default function PriceChart() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch(
-        `https://api3.binance.com/api/v3/klines?symbol=BTCUSDT&interval=2h&limit=${LIMIT}`,
-      );
-
-      const data = await res.json();
-      const closes = data.map((candle: any) => parseFloat(candle[4]));
-      const times = data.map((candle: any) =>
-        new Date(candle[0]).toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        }),
-      );
+      const { closes, times } = await getPrice("BTCUSDT", "2h", LIMIT);
 
       setPrices(closes);
       setLabels(times);
@@ -54,9 +44,6 @@ export default function PriceChart() {
         price1 = Number(price1.toFixed(2));
         price2 = Number(price2.toFixed(2));
         const gap = Number((price2 - price1).toFixed(2));
-
-        console.log(`현재가: ${price1}, 2시간 전 가격: ${price2}`);
-        console.log(`가격 차이: ${gap}`);
 
         setCurrentPrice(price1);
         setHoursAgoPrice(price2);
