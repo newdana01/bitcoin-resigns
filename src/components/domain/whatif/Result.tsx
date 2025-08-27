@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 interface ResultProps {
   profitLoss: number | null;
   totalInvestment: number | null;
@@ -9,6 +11,19 @@ export default function Result({
   totalInvestment,
   profitRate,
 }: ResultProps) {
+  const [isProfitLossPlus, setIsProfitLossPlus] = useState(true);
+  const [isTotalInvestmentPlus, setIsTotalInvestmentPlus] = useState(true);
+
+  useEffect(() => {
+    if (profitLoss !== null && profitLoss < 0) {
+      setIsProfitLossPlus(false);
+    } else setIsProfitLossPlus(true);
+
+    if (totalInvestment !== null && totalInvestment < 0) {
+      setIsTotalInvestmentPlus(false);
+    } else setIsTotalInvestmentPlus(true);
+  }, [profitLoss, totalInvestment]);
+
   return (
     <div className="border border-slate-700 rounded-md p-4 max-h-[17rem] h-full flex flex-col justify-between">
       <h2 className="text-lg font-bold mb-2 md:text-2xl">
@@ -18,9 +33,10 @@ export default function Result({
         <div className="my-2">
           <span className="text-sm text-slate-700">Profit/Loss </span>
           <span
-            className={`block w-fit text-lg md:text-2xl rounded-md px-1 ${profitLoss && profitLoss < 0 ? "bg-red-950" : "bg-green-950"} ${profitLoss && profitLoss < 0 ? "text-red-500" : "text-green-500"}`}
+            className={`block w-fit text-lg md:text-2xl rounded-md px-1 ${isProfitLossPlus ? "bg-green-950" : "bg-red-950"} ${isProfitLossPlus ? "text-green-500" : "text-red-500"}`}
           >
-            ${profitLoss ? profitLoss.toLocaleString("en-US") : 0}
+            ${profitLoss !== null ? profitLoss.toLocaleString("en-US") : 0} (
+            {profitRate}%)
           </span>
         </div>
         <div className="mt-2">
@@ -28,17 +44,20 @@ export default function Result({
             Total investment amount{" "}
           </span>
           <span
-            className={`block w-fit text-lg md:text-2xl rounded-md px-1 bg-green-950 ${totalInvestment && totalInvestment < 0 ? "text-red-500" : "text-green-500"}`}
+            className={`block w-fit text-lg md:text-2xl rounded-md px-1 ${isTotalInvestmentPlus ? "bg-green-950" : "bg-red-950"} ${isTotalInvestmentPlus ? "text-green-500" : "text-red-500"}`}
           >
-            ${totalInvestment ? totalInvestment.toLocaleString("en-US") : 0}
+            $
+            {totalInvestment !== null
+              ? totalInvestment.toLocaleString("en-US")
+              : 0}
           </span>
         </div>
       </div>
-      {profitLoss && (
-        <div className="text-center md:text-2xl mt-5">
-          {profitLoss > 0 ? "Profit Master! 🥳" : "Every loss is a lession! 😅"}
-        </div>
-      )}
+      <div
+        className={`text-center md:text-2xl mt-5 ${profitLoss !== null ? "opacity-100 animate-growShrink" : "opacity-0"}`}
+      >
+        {isProfitLossPlus ? "Profit Master! 🥳" : "Every loss is a lession! 😅"}
+      </div>
     </div>
   );
 }
