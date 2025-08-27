@@ -13,9 +13,11 @@ export default function WhatIf() {
   const [investmentFee, setInvestmentFee] = useState(0);
   const [exitFee, setExitFee] = useState(0);
   const [totalInvestment, setTotalInvestment] = useState(0);
-  const [profitLoss, setProfitLoss] = useState<number | null>(0);
-  const [resultTotalAmount, setResultTotalAmount] = useState<number | null>(0);
-  const [profitRate, setProfitRate] = useState<number | null>(0);
+  const [profitLoss, setProfitLoss] = useState<number | null>(null);
+  const [resultTotalAmount, setResultTotalAmount] = useState<number | null>(
+    null,
+  );
+  const [profitRate, setProfitRate] = useState<number | null>(null);
 
   const getSimulResult = (
     buyPrice: number,
@@ -24,15 +26,19 @@ export default function WhatIf() {
     investmentFee: number,
     exitFee: number,
   ) => {
-    const effectiveAmount = totalInvestment * (1 - investmentFee);
-    const amount = effectiveAmount / buyPrice;
-    const finalAmount = amount * sellPrice * (1 - exitFee);
-    const profitLoss = finalAmount - totalInvestment;
+    const amount = totalInvestment / buyPrice;
+    const totalInvestmentWithFee = totalInvestment + investmentFee;
+    const finalAmount = Number((amount * sellPrice - exitFee).toFixed(2));
+    const profitLoss = Number(
+      (finalAmount - totalInvestmentWithFee).toFixed(2),
+    );
 
     return {
       finalAmount,
       profitLoss,
-      profitRate: (profitLoss / totalInvestment) * 100,
+      profitRate: Number(
+        ((profitLoss / totalInvestmentWithFee) * 100).toFixed(2),
+      ),
     };
   };
 
@@ -85,8 +91,8 @@ export default function WhatIf() {
           </label>
           <InfoTooltip
             content={`Select a date to calculate your profit at the price at that time.\n
-Transaction fees do not apply and calculations are based on the closing price. Use the calculation results for reference only. \n
-You can select any date from August 17, 2017 to before today.`}
+              You can select any date from August 17, 2017 to before today.\n
+Transaction fees do not apply and calculations are based on the closing price. Use the calculation results for reference only.`}
           />
           <div className="mx-3 inline-block"></div>
           <input
@@ -105,6 +111,7 @@ You can select any date from August 17, 2017 to before today.`}
             setBuyPrice={setBuyPrice}
             sellPrice={sellPrice}
             setSellPrice={setSellPrice}
+            setTotalInvestment={setTotalInvestment}
           />
           <PriceDashBoard
             setBuyPrice={setBuyPrice}
