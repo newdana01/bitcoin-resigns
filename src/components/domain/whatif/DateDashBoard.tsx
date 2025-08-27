@@ -9,6 +9,7 @@ interface DateDashBoardProps {
   setBuyPrice: (val: number) => void;
   sellPrice: number;
   setSellPrice: (val: number) => void;
+  setTotalInvestment: (val: number) => void;
 }
 
 export default function DateDashBoard({
@@ -16,6 +17,7 @@ export default function DateDashBoard({
   setBuyPrice,
   sellPrice,
   setSellPrice,
+  setTotalInvestment,
 }: DateDashBoardProps) {
   const [buyDate, setBuyDate] = useState<Date | null>(null);
   const [sellDate, setSellDate] = useState<Date | null>(null);
@@ -35,11 +37,11 @@ export default function DateDashBoard({
   };
 
   useEffect(() => {
-    fetchData(buyDate, setBuyPrice);
+    if (buyDate !== null) fetchData(buyDate, setBuyPrice);
   }, [buyDate]);
 
   useEffect(() => {
-    fetchData(sellDate, setSellPrice);
+    if (sellDate !== null) fetchData(sellDate, setSellPrice);
   }, [sellDate]);
 
   return (
@@ -65,7 +67,11 @@ export default function DateDashBoard({
         </div>
       </div>
       <div>
-        <PriceInput name="totalInvestment" label="Invsetment Amount" />
+        <PriceInput
+          name="totalInvestment"
+          label="Invsetment Amount"
+          onChangeFunc={setTotalInvestment}
+        />
       </div>
     </div>
   );
