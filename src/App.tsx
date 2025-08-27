@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import Layout from "./components/layout/Layout";
 import ChartSection from "./components/domain/pricing/ChatSection";
+import WhatIf from "./components/domain/whatif/WhatIf";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -22,6 +23,7 @@ function App() {
   return (
     <Layout>
       <ChartSection />
+      <WhatIf />
     </Layout>
     // <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-primary-dark">
     //   <button
