@@ -10,6 +10,7 @@ interface DateDashBoardProps {
   sellPrice: number;
   setSellPrice: (val: number) => void;
   setTotalInvestment: (val: number) => void;
+  totalInvestment: number;
 }
 
 export default function DateDashBoard({
@@ -18,6 +19,7 @@ export default function DateDashBoard({
   sellPrice,
   setSellPrice,
   setTotalInvestment,
+  totalInvestment,
 }: DateDashBoardProps) {
   const [buyDate, setBuyDate] = useState<Date | null>(null);
   const [sellDate, setSellDate] = useState<Date | null>(null);
@@ -71,6 +73,7 @@ export default function DateDashBoard({
           name="totalInvestment"
           label="Invsetment Amount"
           onChangeFunc={setTotalInvestment}
+          propValue={totalInvestment}
         />
       </div>
     </div>

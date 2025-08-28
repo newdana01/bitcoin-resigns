@@ -112,6 +112,7 @@ Transaction fees do not apply and calculations are based on the closing price. U
             sellPrice={sellPrice}
             setSellPrice={setSellPrice}
             setTotalInvestment={setTotalInvestment}
+            totalInvestment={totalInvestment}
           />
           <PriceDashBoard
             setBuyPrice={setBuyPrice}
@@ -119,6 +120,11 @@ Transaction fees do not apply and calculations are based on the closing price. U
             setTotalInvestment={setTotalInvestment}
             setInvestmentFee={setInvestmentFee}
             setExitFee={setExitFee}
+            buyPrice={buyPrice}
+            sellPrice={sellPrice}
+            totalInvestment={totalInvestment}
+            investmentFee={investmentFee}
+            exitFee={exitFee}
           />
           <div className="mt-3 flex gap-4">
             <button
