@@ -4,6 +4,7 @@ import PriceDashBoard from "./PriceDashBoard";
 import Result from "./Result";
 import DateDashBoard from "./DateDashBoard";
 import InfoTooltip from "../../../common/components/InfoTooltip";
+import getPrice from "../../../common/functions/getPrice";
 
 type CalculateOption = "date" | "price";
 export default function WhatIf() {
@@ -18,6 +19,8 @@ export default function WhatIf() {
     null,
   );
   const [profitRate, setProfitRate] = useState<number | null>(null);
+  const [buyDate, setBuyDate] = useState<Date | null>(null);
+  const [sellDate, setSellDate] = useState<Date | null>(null);
 
   const getSimulResult = (
     buyPrice: number,
@@ -51,6 +54,8 @@ export default function WhatIf() {
     setProfitLoss(null);
     setResultTotalAmount(null);
     setProfitRate(null);
+    setBuyDate(null);
+    setSellDate(null);
   };
 
   const handleClickCalculate = () => {
@@ -71,6 +76,28 @@ export default function WhatIf() {
   useEffect(() => {
     clearAllPrice();
   }, [option]);
+
+  const fetchData = async (
+    date: Date | null,
+    setPrice: (price: number) => void,
+  ) => {
+    try {
+      const { closes } = await getPrice("BTCUSDT", "1d", 1, date?.getTime());
+      if (closes.length > 0) {
+        setPrice(Number(closes[0].toFixed(2)));
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    if (buyDate !== null) fetchData(buyDate, setBuyPrice);
+  }, [buyDate]);
+
+  useEffect(() => {
+    if (sellDate !== null) fetchData(sellDate, setSellPrice);
+  }, [sellDate]);
 
   return (
     <div>
@@ -108,11 +135,13 @@ Transaction fees do not apply and calculations are based on the closing price. U
           </label>
           <DateDashBoard
             buyPrice={buyPrice}
-            setBuyPrice={setBuyPrice}
             sellPrice={sellPrice}
-            setSellPrice={setSellPrice}
             setTotalInvestment={setTotalInvestment}
             totalInvestment={totalInvestment}
+            buyDate={buyDate}
+            sellDate={sellDate}
+            setBuyDate={setBuyDate}
+            setSellDate={setSellDate}
           />
           <PriceDashBoard
             setBuyPrice={setBuyPrice}
