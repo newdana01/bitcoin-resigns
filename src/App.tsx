@@ -3,6 +3,7 @@ import "./App.css";
 import Layout from "./components/layout/Layout";
 import ChartSection from "./components/domain/pricing/ChatSection";
 import WhatIf from "./components/domain/whatif/WhatIf";
+import NewsSection from "./components/domain/news/NewsSection";
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -24,6 +25,7 @@ function App() {
     <Layout>
       <ChartSection />
       <WhatIf />
+      <NewsSection />
     </Layout>
     // <div className="min-h-screen flex flex-col items-center justify-center bg-white dark:bg-primary-dark">
     //   <button
