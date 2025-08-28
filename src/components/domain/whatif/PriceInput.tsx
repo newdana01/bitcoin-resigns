@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Label from "../../../common/components/Label";
 
 interface PriceInputProps {
@@ -71,7 +71,7 @@ export default function PriceInput({
           name={name}
           value={propValue ?? ""}
           disabled={disabled}
-          className="w-full px-3 bg-transparent text-sm shadow-sm placeholder-slate-400
+          className="w-full px-3 bg-transparent text-sm text-white shadow-sm placeholder-slate-400
       focus:outline-none"
         />
       </div>
