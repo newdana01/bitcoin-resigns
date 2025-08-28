@@ -24,7 +24,7 @@ export default function DateDashBoard({
   setSellDate,
 }: DateDashBoardProps) {
   return (
-    <div className="hidden peer-checked/calculateDate:block">
+    <div className="hidden peer-checked/calculateDate:block md:max-w-[31rem]">
       <div className="my-2">
         <Label label="Buy Date" />
         <div className="flex flex-1">
