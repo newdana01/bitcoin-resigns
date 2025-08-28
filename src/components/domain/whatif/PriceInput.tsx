@@ -18,7 +18,6 @@ export default function PriceInput({
   propValue,
   onChangeFunc,
 }: PriceInputProps) {
-  const [value, setValue] = useState("");
   const borderRef = useRef<HTMLInputElement>(null);
 
   const handleFocus = () => {
@@ -47,7 +46,7 @@ export default function PriceInput({
     if (parts.length > 2) {
       input = parts[0] + "." + parts[1];
     }
-    setValue(input);
+    // setValue(input);
     if (onChangeFunc) {
       onChangeFunc(Number(input));
     }
@@ -70,7 +69,7 @@ export default function PriceInput({
           inputMode="numeric"
           pattern="[0-9]*"
           name={name}
-          value={propValue ? propValue : value}
+          value={propValue ?? ""}
           disabled={disabled}
           className="w-full px-3 bg-transparent text-sm shadow-sm placeholder-slate-400
       focus:outline-none"
