@@ -1,13 +1,30 @@
 import { Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Footer() {
   const [darkMode, setDarkMode] = useState(true);
+
+  // 다크 모드 토글
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, [darkMode]);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
+
   return (
     <div className="px-4 py-6">
       <div className="pb-3 border-t border-slate-700"></div>
       <div>
-        <button className="rounded-3xl py-0 focus:outline-none bg-slate-700">
+        <button
+          className="rounded-3xl py-0 focus:outline-none bg-slate-700"
+          onClick={toggleDarkMode}
+        >
           <div className="rounded-full bg-white p-1 text-slate-700">
             {darkMode ? <Moon /> : <Sun />}
           </div>
