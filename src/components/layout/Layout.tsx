@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 type LayoutProps = {
   children: ReactNode;
@@ -20,6 +21,9 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* 메인 콘텐츠 */}
       <main className="flex-1 max-w-7xl mx-auto px-4 py-6">{children}</main>
+
+      {/* 푸터 */}
+      <Footer />
     </div>
   );
 }
