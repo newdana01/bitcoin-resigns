@@ -7,6 +7,8 @@ body,
 #root {
   width: 100%;
   font-weight: 600;
+  scrollbar-width: thin; /* auto, thin, none */
+  scrollbar-color: #4b5563 transparent; /* thumb 색, track 색 */
 }
 
 ::-webkit-scrollbar {
