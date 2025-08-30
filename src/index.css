@@ -111,3 +111,7 @@ textarea:focus {
     max-width: 60%;
   }
 }
+
+.grid-container {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4;
+}
