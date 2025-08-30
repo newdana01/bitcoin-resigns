@@ -16,7 +16,7 @@ export default function InfoTooltip({ content }: InfoTooltipProps) {
       />
       <Tooltip
         id="info-tooltip"
-        className="whitespace-pre-line max-w-xs !opacity-100 z-50"
+        className="whitespace-pre-line max-w-xs !opacity-100 z-50 font-normal"
         style={{
           backgroundColor: "rgb(31, 41, 55)",
           color: "#fff",

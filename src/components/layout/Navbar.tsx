@@ -6,7 +6,7 @@ type NavbarProps = {
 
 export default function Navbar({ onMenuClick }: NavbarProps) {
   return (
-    <header className="w-full text-white shadow">
+    <header className="w-full dark:text-white shadow">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* 로고 */}
         <div className="text-xl font-bold mr-10">
@@ -16,22 +16,40 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
         {/* 데스크탑 네비게이션 */}
         <div className="hidden lg:flex flex-1 justify-start">
           <nav className="hidden lg:flex space-x-6">
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Bitcoin Price
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               How Bubbly?
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               What If?
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Satoshi Scope
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Get Your Moves
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Coin Voices
             </a>
           </nav>
@@ -39,7 +57,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
         {/* 모바일/패드 햄버거 버튼 */}
         <button
-          className="lg:hidden p-2 rounded hover:text-primary-yellow background-transparent"
+          className="lg:hidden p-2 rounded hover:text-primary-orange dark:hover:text-primary-yellow bg-transparent hover:bg-transparent"
           onClick={onMenuClick}
         >
           <Menu size={24} />

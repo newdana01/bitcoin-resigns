@@ -22,9 +22,12 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       <div className="flex-1 bg-black bg-opacity-50" onClick={onClose}></div>
 
       {/* 사이드바 */}
-      <aside className="w-64 bg-gray-900 h-full p-6">
+      <aside className="w-64 bg-white dark:bg-gray-900 h-full p-6">
         <div className="flex items-center justify-end mb-6">
-          <button className="mb-3 hover:text-primary-yellow" onClick={onClose}>
+          <button
+            className="mb-3 hover:text-primary-orange dark:hover:text-primary-yellow bg-transparent hover:bg-transparent"
+            onClick={onClose}
+          >
             <X size={24} />
           </button>
         </div>
@@ -32,7 +35,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <ChartCandlestick size={20} />
               <span>Bitcoin Price</span>
@@ -41,7 +44,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <Bubbles size={20} />
               <span>How Bubbly?</span>
@@ -50,7 +53,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <WandSparkles size={20} />
               <span>What If?</span>
@@ -59,7 +62,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <Newspaper size={20} />
               <span>Satoshi Scope</span>
@@ -68,7 +71,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <BotMessageSquare size={20} />
               <span>Get Your Moves!</span>
@@ -77,7 +80,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           <li>
             <a
               href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <Speech size={20} />
               <span>Coin Voices</span>
