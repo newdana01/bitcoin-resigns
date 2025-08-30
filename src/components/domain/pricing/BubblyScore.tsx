@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import SectionName from "../../../common/components/SectionName";
 import BubbleGauge from "./BubbleGauge";
-import InfoTooltip from "../../../common/components/InfoTooltip";
 
 export default function BubblyScore() {
-  const score = 90;
+  const score = 80;
 
   return (
     <div className="h-full">
