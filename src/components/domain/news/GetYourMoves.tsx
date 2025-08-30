@@ -46,7 +46,7 @@ export default function GetYourMoves() {
     <div>
       <SectionName name="Get Your Moves!" />
       <div
-        className="h-[26vh] overflow-y-scroll bg-slate-200 rounded-sm
+        className="h-[64.5vh] overflow-y-scroll bg-slate-200 rounded-sm
       dark:bg-transparent
       "
       >

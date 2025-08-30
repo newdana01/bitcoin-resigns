@@ -219,9 +219,9 @@ export default function NewsList() {
   ]);
 
   return (
-    <div className="">
+    <div className="md:max-w-lg">
       <SectionName name="Quick News"></SectionName>
-      <div className="h-[30vh] overflow-y-scroll">
+      <div className="h-[70vh] overflow-y-scroll">
         {newsList.map((news, idx) => (
           <div
             key={idx}
