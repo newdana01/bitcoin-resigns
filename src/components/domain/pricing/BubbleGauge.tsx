@@ -22,13 +22,14 @@ export default function BubbleGauge({ score }: { score: number }) {
 
   return (
     <div
-      className="relative w-full h-[40vh] bg-gradient-to-b from-slate-900 to-slate-800 rounded-2xl overflow-hidden 
+      className="relative w-full h-[40vh] bg-gradient-to-b from-slate-200 to-slate-100 rounded-2xl overflow-hidden 
+      dark:from-slate-900 dark:to-slate-800
     flex flex-col items-center justify-center shadow-lg"
     >
       {/* 점수 텍스트 */}
-      <div className="z-10 text-white text-center">
+      <div className="z-10 dark:text-white text-center">
         <h1 className="text-5xl font-extrabold">{score}</h1>
-        <p className="uppercase tracking-wide text-sm text-gray-300 mt-2">
+        <p className="uppercase tracking-wide text-sm text-gray-600 dark:text-gray-300 mt-2">
           {score < 20
             ? "Flat Soda"
             : score < 40
