@@ -2,7 +2,6 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
-import Footer from "./Footer";
 
 type LayoutProps = {
   children: ReactNode;
@@ -12,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen dark:bg-primary-dark dark:text-white w-full">
+    <div className="flex flex-col min-h-screen bg-gray-950 text-white w-full">
       {/* 상단 네비게이션 */}
       <Navbar onMenuClick={() => setSidebarOpen(true)} />
 
@@ -21,9 +20,6 @@ export default function Layout({ children }: LayoutProps) {
 
       {/* 메인 콘텐츠 */}
       <main className="flex-1 max-w-7xl mx-auto px-4 py-6">{children}</main>
-
-      {/* 푸터 */}
-      <Footer />
     </div>
   );
 }
