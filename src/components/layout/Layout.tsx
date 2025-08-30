@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-screen dark:bg-gray-950 dark:text-white text-black w-full">
+    <div className="flex flex-col min-h-screen bg-white dark:bg-gray-950 dark:text-white w-full">
       {/* 상단 네비게이션 */}
       <Navbar onMenuClick={() => setSidebarOpen(true)} />
 

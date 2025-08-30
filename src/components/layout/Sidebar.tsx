@@ -33,37 +33,55 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         </div>
         <ul className="space-y-4">
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <ChartCandlestick size={20} />
               <span>Bitcoin Price</span>
             </a>
           </li>
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <Bubbles size={20} />
               <span>How Bubbly?</span>
             </a>
           </li>
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <WandSparkles size={20} />
               <span>What If?</span>
             </a>
           </li>
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <Newspaper size={20} />
               <span>Satoshi Scope</span>
             </a>
           </li>
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <BotMessageSquare size={20} />
               <span>Get Your Moves!</span>
             </a>
           </li>
           <li>
-            <a href="#" className="font-semibold flex space-x-2">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+            >
               <Speech size={20} />
               <span>Coin Voices</span>
             </a>

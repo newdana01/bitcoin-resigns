@@ -16,22 +16,40 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
         {/* 데스크탑 네비게이션 */}
         <div className="hidden lg:flex flex-1 justify-start">
           <nav className="hidden lg:flex space-x-6">
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Bitcoin Price
             </a>
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               How Bubbly?
             </a>
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               What If?
             </a>
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Satoshi Scope
             </a>
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Get Your Moves
             </a>
-            <a href="#" className="font-semibold">
+            <a
+              href="#"
+              className="dark:hover:text-primary-yellow font-semibold"
+            >
               Coin Voices
             </a>
           </nav>
