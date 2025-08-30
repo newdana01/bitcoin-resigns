@@ -21,7 +21,8 @@ export default function CalendarPicker({
         value={
           selectedDate ? format(selectedDate, "yyyy-MM-dd") : "Select date..."
         }
-        className="border border-slate-700 rounded-md bg-transparent p-[0.65rem] text-sm"
+        className="border border-slate-200 bg-slate-100 rounded-md bg-transparent p-[0.65rem] text-sm
+        dark:border-slate-700 dark:bg-transparent"
         onClick={() => setIsOpen(!isOpen)}
       />
       {isOpen && (

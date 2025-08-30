@@ -30,7 +30,8 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
               }}
               placeholder="Get tips from AI crypto experts!"
               className="focus:outline-none placeholder:italic placeholder:text-sm placeholder:font-normal 
-            bg-slate-900 rounded-sm 
+            bg-slate-100 rounded-sm 
+            dark:bg-slate-900
             w-full p-2 font-normal"
             />
             <button

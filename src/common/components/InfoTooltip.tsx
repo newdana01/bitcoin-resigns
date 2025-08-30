@@ -12,7 +12,7 @@ export default function InfoTooltip({ content }: InfoTooltipProps) {
         size={12}
         data-tooltip-id="info-tooltip"
         data-tooltip-content={content}
-        className="hover:text-primary-orange text-slate-400"
+        className="hover:text-primary-orange text-slate-400 focus:outline-none"
       />
       <Tooltip
         id="info-tooltip"

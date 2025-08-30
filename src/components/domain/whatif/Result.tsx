@@ -6,6 +6,8 @@ interface ResultProps {
   profitRate: number | null;
 }
 
+const BG_PLUS = "dark:bg-green-950 bg-green-100";
+const BG_MINUS = "dark:bg-red-950 bg-red-100";
 export default function Result({
   profitLoss,
   totalInvestment,
@@ -25,7 +27,11 @@ export default function Result({
   }, [profitLoss, totalInvestment]);
 
   return (
-    <div className="border border-slate-700 rounded-md p-4 max-h-[17rem] h-full flex flex-col justify-between">
+    <div
+      className="border border-slate-200 bg-slate-100 rounded-md p-4 max-h-[17rem] h-full flex flex-col justify-between
+    dark:border-slate-700 dark:bg-transparent
+    "
+    >
       <h2 className="text-lg font-bold mb-2 md:text-2xl">
         If you bought at this price, now...
       </h2>
@@ -33,7 +39,9 @@ export default function Result({
         <div className="my-2">
           <span className="text-sm text-slate-700">Profit/Loss </span>
           <span
-            className={`block w-fit text-lg md:text-2xl rounded-md px-1 ${isProfitLossPlus ? "bg-green-950" : "bg-red-950"} ${isProfitLossPlus ? "text-green-500" : "text-red-500"}`}
+            className={`block w-fit text-lg md:text-2xl rounded-md px-1 
+              ${isProfitLossPlus ? BG_PLUS : BG_MINUS} 
+              ${isProfitLossPlus ? "text-green-500" : "text-red-500"}`}
           >
             ${profitLoss !== null ? profitLoss.toLocaleString("en-US") : 0} (
             {profitRate}%)
@@ -44,7 +52,9 @@ export default function Result({
             Total investment amount{" "}
           </span>
           <span
-            className={`block w-fit text-lg md:text-2xl rounded-md px-1 ${isTotalInvestmentPlus ? "bg-green-950" : "bg-red-950"} ${isTotalInvestmentPlus ? "text-green-500" : "text-red-500"}`}
+            className={`block w-fit text-lg md:text-2xl rounded-md px-1 
+              ${isTotalInvestmentPlus ? BG_PLUS : BG_MINUS} 
+              ${isTotalInvestmentPlus ? "text-green-500" : "text-red-500"}`}
           >
             $
             {totalInvestment !== null

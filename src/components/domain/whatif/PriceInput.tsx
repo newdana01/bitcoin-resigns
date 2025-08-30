@@ -22,7 +22,8 @@ export default function PriceInput({
 
   const handleFocus = () => {
     if (borderRef.current) {
-      borderRef.current.classList.toggle("border-slate-700", false);
+      borderRef.current.classList.toggle("border-slate-200", false);
+      borderRef.current.classList.toggle("dark:border-slate-700", false);
       borderRef.current.classList.toggle("border-primary-orange", true);
     }
   };
@@ -30,7 +31,8 @@ export default function PriceInput({
   const handelBlur = () => {
     if (borderRef.current) {
       borderRef.current.classList.toggle("border-primary-orange", false);
-      borderRef.current.classList.toggle("border-slate-700", true);
+      borderRef.current.classList.toggle("border-slate-200", true);
+      borderRef.current.classList.toggle("dark:border-slate-700", true);
     }
   };
 
@@ -55,7 +57,9 @@ export default function PriceInput({
     <div>
       {label && <Label label={label} />}
       <div
-        className="flex border border-slate-700 focus:ring-primary-orange rounded-md"
+        className="flex border border-slate-200 focus:ring-primary-orange rounded-md bg-slate-100
+        dark:border-slate-700 dark:bg-transparent
+        "
         ref={borderRef}
       >
         <span className="mx-3 text-base/[45px] text-primary-orange text-align-center">
@@ -71,7 +75,7 @@ export default function PriceInput({
           name={name}
           value={propValue ?? ""}
           disabled={disabled}
-          className="w-full px-3 bg-transparent text-sm text-white shadow-sm placeholder-slate-400
+          className="w-full px-3 bg-transparent text-sm dark:text-white shadow-sm placeholder-slate-400
       focus:outline-none"
         />
       </div>

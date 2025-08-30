@@ -45,7 +45,11 @@ export default function GetYourMoves() {
   return (
     <div>
       <SectionName name="Get Your Moves!" />
-      <div className="h-[26vh] overflow-y-scroll">
+      <div
+        className="h-[26vh] overflow-y-scroll bg-slate-200 rounded-sm
+      dark:bg-transparent
+      "
+      >
         {messages.map((msg, idx) => (
           <ChatMessage key={idx} message={msg.message} isUser={msg.isUser} />
         ))}

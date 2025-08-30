@@ -74,7 +74,7 @@ export default function Calendar({
   };
 
   return (
-    <div className="w-full max-w-md p-4 mx-auto bg-gray-800 shadow rounded-2xl">
+    <div className="w-full max-w-md p-4 mx-auto bg-slate-200 dark:bg-gray-800 shadow rounded-2xl">
       {/* 드롭다운 헤더 */}
       <div className="flex items-center justify-center gap-2 mb-4">
         <select
@@ -119,7 +119,7 @@ export default function Calendar({
               onClick={() => onSelectDate(day)}
               className={`
                 m-1 p-2 rounded-full
-                ${isCurrentMonth ? "text-white" : "text-gray-500"}
+                ${isCurrentMonth ? "dark:text-white" : "text-gray-400 dark:text-gray-500"}
                 ${isSelected ? "bg-primary-orange text-white" : "hover:bg-primary-orange"}
               `}
             >

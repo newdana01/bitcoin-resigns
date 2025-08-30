@@ -225,7 +225,7 @@ export default function NewsList() {
         {newsList.map((news, idx) => (
           <div
             key={idx}
-            className="my-3 p-2 rounded-md hover:bg-slate-800 font-normal h-"
+            className="my-3 p-2 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 font-normal h-"
           >
             <div>{news.title}</div>
             <div className="text-sm text-slate-500">
