@@ -39,7 +39,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
         {/* 모바일/패드 햄버거 버튼 */}
         <button
-          className="lg:hidden p-2 rounded hover:text-primary-orange dark:hover:text-primary-yellow background-transparent"
+          className="lg:hidden p-2 rounded hover:text-primary-orange dark:hover:text-primary-yellow bg-transparent hover:bg-transparent"
           onClick={onMenuClick}
         >
           <Menu size={24} />

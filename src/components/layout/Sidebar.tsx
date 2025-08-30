@@ -25,7 +25,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
       <aside className="w-64 bg-white dark:bg-gray-900 h-full p-6">
         <div className="flex items-center justify-end mb-6">
           <button
-            className="mb-3 hover:text-primary-orange dark:hover:text-primary-yellow"
+            className="mb-3 hover:text-primary-orange dark:hover:text-primary-yellow bg-transparent hover:bg-transparent"
             onClick={onClose}
           >
             <X size={24} />
@@ -57,19 +57,13 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
             </a>
           </li>
           <li>
-            <a
-              href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
-            >
+            <a href="#" className="font-semibold flex space-x-2">
               <BotMessageSquare size={20} />
               <span>Get Your Moves!</span>
             </a>
           </li>
           <li>
-            <a
-              href="#"
-              className="hover:text-primary-yellow font-semibold flex space-x-2"
-            >
+            <a href="#" className="font-semibold flex space-x-2">
               <Speech size={20} />
               <span>Coin Voices</span>
             </a>

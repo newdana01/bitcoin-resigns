@@ -120,7 +120,7 @@ export default function Calendar({
               className={`
                 m-1 p-2 rounded-full
                 ${isCurrentMonth ? "dark:text-white" : "text-gray-400 dark:text-gray-500"}
-                ${isSelected ? "bg-primary-orange text-white" : "hover:bg-primary-orange"}
+                ${isSelected ? "bg-primary-orange text-white" : "bg-transparent hover:bg-primary-orange"}
               `}
             >
               {format(day, "d")}
