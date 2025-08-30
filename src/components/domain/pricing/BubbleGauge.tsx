@@ -6,7 +6,11 @@ export default function BubbleGauge({ score }: { score: number }) {
 
   useEffect(() => {
     // 점수에 따라 버블 개수 증가
-    const bubbleCount = Math.floor(score / 10) + 10;
+    let weight;
+    if (score > 80) weight = 100;
+    else if (score > 40) weight = 30;
+    else weight = 10;
+    const bubbleCount = Math.floor(score / 10) + weight;
     setBubbles(Array.from({ length: bubbleCount }, () => Math.random()));
   }, [score]);
 
