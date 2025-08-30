@@ -19,10 +19,10 @@ export default function Footer() {
 
   return (
     <div className="px-4 py-6">
-      <div className="pb-3 border-t border-slate-700"></div>
+      <div className="pb-3 border-t border-slate-300 dark:border-slate-700"></div>
       <div>
         <button
-          className="rounded-3xl py-0 focus:outline-none bg-slate-700"
+          className="rounded-3xl py-0 bg-slate-700 hover:bg-slate-700"
           onClick={toggleDarkMode}
         >
           <div className="rounded-full bg-white p-1 text-slate-700">

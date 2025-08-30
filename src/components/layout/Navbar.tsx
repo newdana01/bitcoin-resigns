@@ -16,22 +16,22 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
         {/* 데스크탑 네비게이션 */}
         <div className="hidden lg:flex flex-1 justify-start">
           <nav className="hidden lg:flex space-x-6">
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               Bitcoin Price
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               How Bubbly?
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               What If?
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               Satoshi Scope
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               Get Your Moves
             </a>
-            <a href="#" className="hover:text-primary-yellow font-semibold">
+            <a href="#" className="font-semibold">
               Coin Voices
             </a>
           </nav>
@@ -39,7 +39,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
 
         {/* 모바일/패드 햄버거 버튼 */}
         <button
-          className="lg:hidden p-2 rounded hover:text-primary-yellow background-transparent"
+          className="lg:hidden p-2 rounded hover:text-primary-orange dark:hover:text-primary-yellow background-transparent"
           onClick={onMenuClick}
         >
           <Menu size={24} />
