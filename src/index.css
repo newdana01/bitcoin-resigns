@@ -9,6 +9,7 @@ body,
   font-weight: 600;
   scrollbar-width: thin; /* auto, thin, none */
   scrollbar-color: #4b5563 transparent; /* thumb 색, track 색 */
+  color: "#202630";
 }
 
 ::-webkit-scrollbar {
