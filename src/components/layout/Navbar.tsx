@@ -6,7 +6,7 @@ type NavbarProps = {
 
 export default function Navbar({ onMenuClick }: NavbarProps) {
   return (
-    <header className="w-full text-white shadow">
+    <header className="w-full dark:text-white shadow">
       <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* 로고 */}
         <div className="text-xl font-bold mr-10">
