@@ -9,6 +9,7 @@ export default {
           light: "#d49417",
           yellow: "#facc15",
           orange: "#eba51c",
+          transOrange: "rgb(235,165,28, 0.8)",
         },
       },
       keyframes: {
