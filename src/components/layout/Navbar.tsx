@@ -38,7 +38,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               href="#"
               className="dark:hover:text-primary-yellow font-semibold"
             >
-              Satoshi Scope
+              Quick News
             </a>
             <a
               href="#"
@@ -50,7 +50,7 @@ export default function Navbar({ onMenuClick }: NavbarProps) {
               href="#"
               className="dark:hover:text-primary-yellow font-semibold"
             >
-              Coin Voices
+              Top BTC Holders
             </a>
           </nav>
         </div>

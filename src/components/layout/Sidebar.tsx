@@ -2,8 +2,8 @@ import {
   BotMessageSquare,
   Bubbles,
   ChartCandlestick,
+  Crown,
   Newspaper,
-  Speech,
   WandSparkles,
   X,
 } from "lucide-react";
@@ -65,7 +65,7 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
               <Newspaper size={20} />
-              <span>Satoshi Scope</span>
+              <span>Quick News</span>
             </a>
           </li>
           <li>
@@ -82,8 +82,8 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
               href="#"
               className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
             >
-              <Speech size={20} />
-              <span>Coin Voices</span>
+              <Crown size={20} />
+              <span>Top BTC Holders</span>
             </a>
           </li>
         </ul>
