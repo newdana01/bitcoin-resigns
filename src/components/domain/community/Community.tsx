@@ -1,9 +1,9 @@
-import CoinVoices from "./CoinVoices";
+import HolderList from "./HolderList";
 
 export default function Community() {
   return (
     <div className="grid-container">
-      <CoinVoices />
+      <HolderList />
     </div>
   );
 }
