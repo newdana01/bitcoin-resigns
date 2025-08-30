@@ -9,7 +9,7 @@ body,
   font-weight: 600;
   scrollbar-width: thin; /* auto, thin, none */
   scrollbar-color: #4b5563 transparent; /* thumb 색, track 색 */
-  color: "#202630";
+  color: #202630;
 }
 
 ::-webkit-scrollbar {
@@ -44,8 +44,9 @@ a {
   /* color: #646cff; */
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  @apply text-primary-orange;
 }
 
 body {
@@ -89,7 +90,7 @@ textarea:focus {
   box-shadow: none;
 }
 
-@media (prefers-color-scheme: light) {
+/* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
     background-color: #ffffff;
@@ -99,10 +100,9 @@ textarea:focus {
   }
   button {
     /* background-color: #f9f9f9; */
-  }
-}
-
-#root {
+/* } */
+/* } */
+*/ #root {
   > main {
     flex-direction: column;
     display: center;
