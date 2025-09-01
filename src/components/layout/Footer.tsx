@@ -1,21 +1,9 @@
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import useDarkmode from "../../common/hooks/useDarkmode";
 
 export default function Footer() {
-  const [darkMode, setDarkMode] = useState(true);
-
-  // 다크 모드 토글
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [darkMode]);
-
-  const toggleDarkMode = () => {
-    setDarkMode((prevMode) => !prevMode);
-  };
+  const [darkMode, toggleDarkMode] = useDarkmode();
 
   return (
     <div className="px-4 py-6">
