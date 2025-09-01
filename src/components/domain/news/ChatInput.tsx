@@ -18,7 +18,7 @@ export default function ChatInput({ onSendMessage }: ChatInputProps) {
   );
 
   return (
-    <div>
+    <div className="shadow-lg">
       <form onSubmit={handleSubmit}>
         <fieldset>
           <div className="flex">
