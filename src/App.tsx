@@ -6,14 +6,7 @@ import NewsSection from "./components/domain/news/NewsSection";
 import Community from "./components/domain/community/Community";
 
 function App() {
-  return (
-    <Layout>
-      <ChartSection />
-      <WhatIf />
-      <NewsSection />
-      <Community />
-    </Layout>
-  );
+  return <Layout></Layout>;
 }
 
 export default App;

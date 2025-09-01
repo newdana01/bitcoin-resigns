@@ -11,9 +11,14 @@ import {
 type SidebarProps = {
   open: boolean;
   onClose: () => void;
+  handleScrollTo: (section: "chart" | "whatif" | "news" | "community") => void;
 };
 
-export default function Sidebar({ open, onClose }: SidebarProps) {
+export default function Sidebar({
+  open,
+  onClose,
+  handleScrollTo,
+}: SidebarProps) {
   if (!open) return null;
 
   return (
@@ -34,8 +39,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
         <ul className="space-y-4">
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
+              onClick={() => {
+                handleScrollTo("chart");
+              }}
             >
               <ChartCandlestick size={20} />
               <span>Bitcoin Price</span>
@@ -43,8 +50,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
+              onClick={() => {
+                handleScrollTo("chart");
+              }}
             >
               <Bubbles size={20} />
               <span>How Bubbly?</span>
@@ -52,8 +61,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              onClick={() => {
+                handleScrollTo("whatif");
+              }}
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
             >
               <WandSparkles size={20} />
               <span>What If?</span>
@@ -61,8 +72,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
+              onClick={() => {
+                handleScrollTo("news");
+              }}
             >
               <Newspaper size={20} />
               <span>Quick News</span>
@@ -70,8 +83,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
+              onClick={() => {
+                handleScrollTo("news");
+              }}
             >
               <BotMessageSquare size={20} />
               <span>Get Your Moves!</span>
@@ -79,8 +94,10 @@ export default function Sidebar({ open, onClose }: SidebarProps) {
           </li>
           <li>
             <a
-              href="#"
-              className="dark:hover:text-primary-yellow font-semibold flex space-x-2"
+              className="dark:hover:text-primary-yellow font-semibold flex space-x-2 cursor-pointer"
+              onClick={() => {
+                handleScrollTo("community");
+              }}
             >
               <Crown size={20} />
               <span>Top BTC Holders</span>
