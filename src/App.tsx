@@ -1,6 +1,6 @@
 import "./App.css";
 import Layout from "./components/layout/Layout";
-import ChartSection from "./components/domain/pricing/ChatSection";
+import ChartSection from "./components/domain/pricing/ChartSection";
 import WhatIf from "./components/domain/whatif/WhatIf";
 import NewsSection from "./components/domain/news/NewsSection";
 import Community from "./components/domain/community/Community";
