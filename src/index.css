@@ -12,6 +12,14 @@ body,
   color: #202630;
 }
 
+html {
+  @apply bg-white text-gray-900;
+}
+
+html.dark {
+  @apply bg-primary-dark;
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -31,7 +39,7 @@ body,
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #181a21;
+  /* background-color: #181a21; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
