@@ -18,6 +18,10 @@ export default defineConfig([
       ...pluginReact.configs.flat.recommended.rules,
       "@typescript-eslint/no-explicit-any": "off",
       "react/react-in-jsx-scope": "off", // 여기서 끔
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        { varsIgnorePattern: "ReactNode" },
+      ],
     },
   },
 ]);
