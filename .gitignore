@@ -24,3 +24,9 @@ dist-ssr
 *.sw?
 
 src/App.css
+
+.next
+next-env.d.ts
+dist
+
+.env
