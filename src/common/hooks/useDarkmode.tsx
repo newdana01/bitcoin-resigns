@@ -2,27 +2,33 @@ import { useEffect, useState } from "react";
 
 const useDarkmode = (): [boolean, () => void] => {
   const localStorageChecker = (): boolean => {
-    if (!localStorage.theme) return true;
-    return localStorage.theme === "dark" ? true : false;
+    if (typeof window === "undefined" || !window.localStorage.theme)
+      return true;
+    return window.localStorage.theme === "dark";
   };
+
   const [darkMode, setDarkMode] = useState(localStorageChecker());
+
   const toggleDarkMode = () => {
     setDarkMode((prevState) => {
       const newState = !prevState;
-      if (newState) {
-        localStorage.theme = "dark";
-      } else {
-        localStorage.theme = "light";
+      if (typeof window !== "undefined") {
+        window.localStorage.theme = newState ? "dark" : "light";
       }
       return newState;
     });
   };
 
   useEffect(() => {
-    if (localStorage.theme === "dark" || !("theme" in localStorage)) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
+    if (typeof window !== "undefined") {
+      if (
+        window.localStorage.theme === "dark" ||
+        !("theme" in window.localStorage)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
     }
   }, [darkMode]);
 
