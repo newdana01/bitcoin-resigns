@@ -21,7 +21,7 @@ export default function Footer() {
             {darkMode ? <Moon /> : <Sun />}
           </div>
           <span className="text-sm font-medium">
-            {darkMode ? "Light Mode" : "Dark Mode"}
+            {darkMode ? "Dark Mode" : "Light Mode"}
           </span>
         </button>
       </div>
