@@ -3,7 +3,24 @@ import SectionName from "../../../common/components/SectionName";
 import BubbleGauge from "./BubbleGauge";
 
 export default function BubblyScore() {
-  const score = 80;
+  const [score, setScore] = useState<number>(0);
+
+  const fetchBubbleScore = async () => {
+    try {
+      const res = await fetch("/api/bubble");
+      if (!res.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await res.json();
+      setScore(Number(data.score));
+    } catch (error) {
+      console.error("Failed to fetch bubble score:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBubbleScore();
+  }, []);
 
   return (
     <div className="h-full">
