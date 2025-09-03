@@ -1,3 +1,4 @@
+"use client";
 import "../App.css";
 import { ClientOnly } from "./client";
 
