@@ -102,9 +102,9 @@ export default function PriceChart() {
   };
 
   return (
-    <div>
+    <div className="">
       <SectionName name="Bitcoin Price"></SectionName>
-      <div className="font-bold text-lg mb-4">
+      <div className="font-bold text-lg mb-4 lg:mb-10">
         <span className="text-xl mr-2 md:text-2xl">
           ${currentPrice.toLocaleString("en-US")}{" "}
           <span className="text-slate-500">USD</span>
@@ -115,7 +115,7 @@ export default function PriceChart() {
           {((priceGap / hoursAgoPrice) * 100).toFixed(2)}%)
         </span>
       </div>
-      <div className="w-80 lx:w-[600px] lg:w-[500px] sm:w-[400px]">
+      <div className="w-80 lx:w-[600px] lg:w-[35rem] sm:w-[26rem]">
         <Line data={chartData} options={options}></Line>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default function BubbleGauge({ score }: { score: number }) {
 
   return (
     <div
-      className="relative w-full h-[40vh] bg-gradient-to-b from-slate-200 to-slate-100 rounded-2xl overflow-hidden 
+      className="relative w-full h-[20rem] bg-gradient-to-b from-slate-200 to-slate-100 rounded-2xl overflow-hidden 
       dark:from-slate-900 dark:to-slate-800
     flex flex-col items-center justify-center shadow-lg"
     >

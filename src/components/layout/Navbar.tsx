@@ -21,7 +21,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("chart");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               Bitcoin Price
             </a>
@@ -29,7 +29,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("chart");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               How Bubbly?
             </a>
@@ -37,7 +37,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("whatif");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               What If?
             </a>
@@ -45,7 +45,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("news");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               Quick News
             </a>
@@ -53,7 +53,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("news");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               Get Your Moves
             </a>
@@ -61,7 +61,7 @@ export default function Navbar({ onMenuClick, handleScrollTo }: NavbarProps) {
               onClick={() => {
                 handleScrollTo("community");
               }}
-              className="dark:hover:text-primary-yellow font-semibold"
+              className="dark:hover:text-primary-yellow font-semibold cursor-pointer"
             >
               Top BTC Holders
             </a>
