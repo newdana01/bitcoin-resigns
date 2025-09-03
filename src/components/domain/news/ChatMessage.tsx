@@ -3,9 +3,14 @@ import AIWriter from "react-aiwriter";
 interface ChatMessageProps {
   message: string;
   isUser: boolean;
+  isLoading?: boolean;
 }
 
-export default function ChatMessage({ message, isUser }: ChatMessageProps) {
+export default function ChatMessage({
+  message,
+  isUser,
+  isLoading,
+}: ChatMessageProps) {
   return (
     <div className="grid">
       <div
@@ -18,7 +23,14 @@ export default function ChatMessage({ message, isUser }: ChatMessageProps) {
           {isUser ? "User" : "Bot"}
         </header>
         {isUser && <p>{message}</p>}
-        {!isUser && <AIWriter>{message}</AIWriter>}
+        {!isUser &&
+          (isLoading ? (
+            <div className="flex justify-center h-10">
+              <img src="/images/loading3.gif" alt="" />
+            </div>
+          ) : (
+            <AIWriter>{message}</AIWriter>
+          ))}
       </div>
     </div>
   );
