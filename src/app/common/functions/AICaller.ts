@@ -1,6 +1,6 @@
 import OpenAI from "openai";
 
-class AICaller {
+export default class AICaller {
   static openai = new OpenAI({
     apiKey: process.env.OPENAN_API_KEY,
   });
