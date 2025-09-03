@@ -8,14 +8,21 @@ export default function Footer() {
   return (
     <div className="px-4 py-6">
       <div className="pb-3 border-t border-slate-300 dark:border-slate-700"></div>
-      <div>
+      <div className="my-2 flex justify-center md:justify-start">
         <button
-          className="rounded-3xl py-0 bg-slate-700 hover:bg-slate-700"
+          className={`flex items-center gap-2 px-2 py-1 rounded-full transition-colors ${
+            darkMode
+              ? "bg-primary-orange text-white"
+              : "bg-gray-600 text-gray-200"
+          }`}
           onClick={toggleDarkMode}
         >
           <div className="rounded-full bg-white p-1 text-slate-700">
             {darkMode ? <Moon /> : <Sun />}
           </div>
+          <span className="text-sm font-medium">
+            {darkMode ? "Light Mode" : "Dark Mode"}
+          </span>
         </button>
       </div>
       <div className="text-sm font-normal">
