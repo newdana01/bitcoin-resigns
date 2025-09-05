@@ -39,4 +39,19 @@ export default class AICaller {
       return null;
     }
   }
+
+  static async createBatch(
+    input_file_id: string,
+  ): Promise<OpenAI.Batch | undefined> {
+    try {
+      const response = await this.openai.batches.create({
+        input_file_id: input_file_id,
+        endpoint: "/v1/responses",
+        completion_window: "24h",
+      });
+      return response;
+    } catch (error) {
+      console.error("createBatch() error >>> ", error);
+    }
+  }
 }
