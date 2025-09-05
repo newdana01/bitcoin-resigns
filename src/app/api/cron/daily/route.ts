@@ -1,21 +1,22 @@
 import { NextRequest } from "next/server";
 import AICaller from "../../../common/functions/AICaller";
 import { sql } from "@vercel/postgres";
-import { StorageFile } from "../../../common/types/BatchLog";
+import { StorageFile } from "../../../common/types/dbTypes";
+import path from "path";
 
 export const runtime = "nodejs";
 
 async function doWork() {
   console.log("Running daily cron job: Create batch in OpenAI");
-  const BATCH_FILE_PATH = "/batch.jsonl";
-  let batchFileId: string | undefined = "";
+  let batchFileId: string;
+  const BATCH_FILE_PATH = path.join(process.cwd(), "batch.jsonl");
+
   const { rows } =
     await sql<StorageFile>`SELECT * FROM storage_files WHERE purpose = 'batch' ORDER BY created_at DESC LIMIT 1`;
   if (rows.length === 0 || !rows[0]) {
     batchFileId = (await uploadBatchFile(BATCH_FILE_PATH)) ?? "";
-  }
+  } else batchFileId = rows[0].id;
 
-  batchFileId = rows[0].id;
   console.log("-- Using batch file id:", batchFileId, "--");
 
   try {
@@ -32,23 +33,24 @@ async function doWork() {
 }
 
 async function createBatch(batchFileId: string) {
+  console.log("-- Creating new batch in OpenAI --");
   const batchRes = await AICaller.createBatch(batchFileId);
 
-  if (batchRes) {
-    await sql`INSERT INTO batch_logs (id, status, input_file, endpoint, provider) 
-    VALUES (${batchRes.id}, PENDING, ${batchRes.input_file_id}, ${batchRes.endpoint}, 'openai')`;
-
-    console.log("-- Batch created --");
-  }
+  if (!batchRes) throw new Error("createBatch returned no response");
+  await sql`
+    INSERT INTO batch_logs (id, status, input_file, endpoint, provider)
+    VALUES (${batchRes.id}, 'PENDING', ${batchRes.input_file_id}, ${batchRes.endpoint}, 'openai')
+  `;
+  console.log("-- Batch created --", batchRes.id);
 }
 
 async function uploadBatchFile(filePath: string) {
   console.log("--- Uploading new batch file to OpenAI --");
   const fileRes = await AICaller.uploadFile(filePath);
-  if (fileRes) {
-    await sql`INSERT INTO storage_files (id, purpose, provider) VALUES (${fileRes?.id}, 'batch', 'openai')`;
-    return fileRes.id;
-  }
+  if (!fileRes) throw new Error("uploadFile returned no response");
+  await sql`INSERT INTO storage_files (id, purpose, provider) VALUES (${fileRes.id}, 'batch', 'openai')`;
+  console.log("--- Uplodaing Completed --");
+  return fileRes.id;
 }
 
 export async function POST(req: NextRequest) {
