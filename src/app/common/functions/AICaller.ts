@@ -41,15 +41,16 @@ export default class AICaller {
     }
   }
 
-  static async uploadFile() {
+  static async uploadFile(filePath: string) {
     try {
       const file = await this.openai.files.create({
-        file: fs.createReadStream("/batch.jsonl"),
+        file: fs.createReadStream(filePath),
         purpose: "batch",
       });
       return file;
     } catch (error) {
       console.error("uploadFile() error >>> ", error);
+      throw error;
     }
   }
 
@@ -63,8 +64,9 @@ export default class AICaller {
         completion_window: "24h",
       });
       return response;
-    } catch (error) {
+    } catch (error: any) {
       console.error("createBatch() error >>> ", error);
+      throw new Error(error.message);
     }
   }
 
