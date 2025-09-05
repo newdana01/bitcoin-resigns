@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+import fs from "fs";
 
 export default class AICaller {
   static openai = new OpenAI({
@@ -40,6 +41,18 @@ export default class AICaller {
     }
   }
 
+  static async uploadFile() {
+    try {
+      const file = await this.openai.files.create({
+        file: fs.createReadStream("/batch.jsonl"),
+        purpose: "batch",
+      });
+      return file;
+    } catch (error) {
+      console.error("uploadFile() error >>> ", error);
+    }
+  }
+
   static async createBatch(
     input_file_id: string,
   ): Promise<OpenAI.Batch | undefined> {
@@ -66,9 +79,9 @@ export default class AICaller {
     }
   }
 
-  static async retrieveFile(fileId: string) {
+  static async retrieveFileContent(fileId: string) {
     try {
-      const response = await this.openai.files.retrieve(fileId);
+      const response = await this.openai.files.content(fileId);
       return response;
     } catch (error) {
       console.error("retrieveFile() error >>> ", error);
