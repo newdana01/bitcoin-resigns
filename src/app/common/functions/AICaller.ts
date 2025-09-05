@@ -65,4 +65,13 @@ export default class AICaller {
       console.error("createBatch() error >>> ", error);
     }
   }
+
+  static async retrieveFile(fileId: string) {
+    try {
+      const response = await this.openai.files.retrieve(fileId);
+      return response;
+    } catch (error) {
+      console.error("retrieveFile() error >>> ", error);
+    }
+  }
 }
