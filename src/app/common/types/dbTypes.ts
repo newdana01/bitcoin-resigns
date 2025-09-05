@@ -15,3 +15,5 @@ export type StorageFile = {
   provider: string;
   created_at: string;
 };
+
+export type ScoreSummary = { score: number; summary: string };
