@@ -13,6 +13,7 @@
   "dependencies": {
     "@nestjs/axios": "^4.0.1",
     "@radix-ui/react-select": "^2.2.6",
+    "@vercel/postgres": "^0.10.0",
     "axios": "^1.11.0",
     "chart.js": "^4.5.0",
     "class-variance-authority": "^0.7.1",
