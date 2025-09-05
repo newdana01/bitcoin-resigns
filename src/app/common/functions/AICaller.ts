@@ -54,4 +54,15 @@ export default class AICaller {
       console.error("createBatch() error >>> ", error);
     }
   }
+
+  static async retrieveBatch(
+    batchId: string,
+  ): Promise<OpenAI.Batch | undefined> {
+    try {
+      const response = await this.openai.batches.retrieve(batchId);
+      return response;
+    } catch (error) {
+      console.error("createBatch() error >>> ", error);
+    }
+  }
 }
