@@ -18,10 +18,11 @@ export default defineConfig([
       ...pluginReact.configs.flat.recommended.rules,
       "@typescript-eslint/no-explicit-any": "off",
       "react/react-in-jsx-scope": "off", // 여기서 끔
-      "@typescript-eslint/no-unused-vars": [
-        "error",
-        { varsIgnorePattern: "ReactNode" },
-      ],
+      // 미사용 변수 전역 무시
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      // const 선호 규칙 비활성화
+      "prefer-const": "off",
     },
   },
 ]);

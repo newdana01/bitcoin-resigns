@@ -40,17 +40,8 @@ async function doWork() {
         for (const line of text.split("\n")) {
           if (!line.trim()) continue;
           const obj = JSON.parse(line);
-          const customId = obj.custom_id as string;
           const body = obj.response?.body;
           const scoreSummary = extractScoreSummary(body);
-          const error = obj.error;
-
-          console.log(`--obj: ${obj} --`);
-          console.log(`-- customId: ${customId} --`);
-          console.log(`-- body: ${body} --`);
-          console.log(`-- score: ${scoreSummary.score} --`);
-          console.log(`-- summary: ${scoreSummary.summary} --`);
-          console.log(`-- error: ${error} --`);
 
           if (scoreSummary && scoreSummary.score && scoreSummary.summary) {
             await sql`INSERT INTO bubble_scores (score, summary) VALUES (${scoreSummary.score}, ${scoreSummary.summary})`;
@@ -58,17 +49,18 @@ async function doWork() {
             console.log("--- Updated Bubble Score ---");
           }
         }
-      } else if (
-        batchRes &&
-        (batchRes.status === "failed" ||
-          batchRes.status === "expired" ||
-          batchRes.status === "cancelled")
-      ) {
-        await sql`
+      }
+      console.log("--- Completed Batch Processing ---");
+    } else if (
+      batchRes &&
+      (batchRes.status === "failed" ||
+        batchRes.status === "expired" ||
+        batchRes.status === "cancelled")
+    ) {
+      await sql`
         UPDATE batch_logs
         SET status = 'FAILED', updated_at = NOW()
         WHERE id = ${batchRes.id}`;
-      }
       console.log("--- Updated Batch Logs To Fail ---");
     }
     return Response.json({ ok: true });

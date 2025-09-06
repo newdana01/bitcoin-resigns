@@ -1,5 +1,4 @@
 import { Moon, Sun } from "lucide-react";
-import { useEffect, useState } from "react";
 import useDarkmode from "../../common/hooks/useDarkmode";
 
 export default function Footer() {
