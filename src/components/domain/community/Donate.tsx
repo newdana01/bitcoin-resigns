@@ -85,8 +85,11 @@ export default function Donate() {
             <p className="text-lg font-semibold">
               🚀 Thanks for your clicks! Support the developer?
             </p>
-            <button className="mt-2 px-4 py-2 bg-yellow-400 rounded-xl font-bold hover:bg-yellow-500">
-              ☕ Buy me a coffee
+            <button
+              onClick={() => window.open("https://buymeacoffee.com/newdana019")}
+              className="mt-2 px-4 py-2 bg-yellow-400 rounded-xl font-bold hover:bg-yellow-500"
+            >
+              🍺 Buy me a beer
             </button>
           </motion.div>
         )}

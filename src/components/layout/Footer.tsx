@@ -26,11 +26,17 @@ export default function Footer() {
       </div>
       <div className="text-sm font-normal">
         <div className="flex justify-center divide-x mb-3">
-          <a href="#" className="px-3 hover:text-primary-orange">
+          <a
+            href="mailto:newdana01@gmail.com"
+            className="px-3 hover:text-primary-orange"
+          >
             Contact
           </a>
-          <a href="#" className="px-3 hover:text-primary-orange">
-            Donate via PayPal
+          <a
+            href="https://buymeacoffee.com/newdana019"
+            className="px-3 hover:text-primary-orange"
+          >
+            Support for Developer
           </a>
         </div>
         <p className="text-slate-700 text-center">
