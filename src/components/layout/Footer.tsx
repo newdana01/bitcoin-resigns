@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <div className="px-4 py-6">
       <div className="pb-3 border-t border-slate-300 dark:border-slate-700"></div>
-      <div className="my-2 flex justify-center md:justify-start">
+      <div className="mt-2 mb-4 flex justify-center md:justify-start">
         <button
           className={`flex items-center gap-2 px-2 py-1 rounded-full transition-colors ${
             darkMode
