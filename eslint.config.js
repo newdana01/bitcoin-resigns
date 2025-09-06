@@ -17,11 +17,9 @@ export default defineConfig([
     rules: {
       ...pluginReact.configs.flat.recommended.rules,
       "@typescript-eslint/no-explicit-any": "off",
-      "react/react-in-jsx-scope": "off", // 여기서 끔
-      // 미사용 변수 전역 무시
+      "react/react-in-jsx-scope": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
-      // const 선호 규칙 비활성화
       "prefer-const": "off",
     },
   },
