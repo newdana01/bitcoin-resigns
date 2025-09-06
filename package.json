@@ -8,7 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "tailwind:build": "tailwindcss -i ./src/index.css -o ./src/App.css --minify"
   },
   "dependencies": {
     "@nestjs/axios": "^4.0.1",
